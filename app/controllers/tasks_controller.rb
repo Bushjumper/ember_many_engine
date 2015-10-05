@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def create
 
+
     task_id = params[:task][:id]
     task_attrs = params[:task]
 
@@ -15,7 +16,8 @@ class TasksController < ApplicationController
       @firebase.set("people/#{assignee_id}/assigned_task_ids/#{task_id}", true)
     end
 
-    # task_attrs['stream_ids'] = task_attrs['stream_ids'].map{|id| {id: true}}
+    stream_ids = task_attrs['stream_ids']
+    # task_attrs['stream_ids'] = .map{|id| {id: true}}
 
     response = @firebase.set("tasks/#{task_id}", task_attrs)
 

@@ -1,13 +1,19 @@
 class PeopleController < ApplicationController
   def create
 
-    response = @firebase.set("people/#{params[:person][:id]}", params[:person])
+    person = Person.new(person_params)
 
-    json = { }
-    json[:id] = params[:person][:id] if response.success?
-    respond_to do |format|
-      format.json { render json: json }
+    if person.save
+      render json: { id: person.id }, status: 201
+    else
+      render json: {}, status: 422
     end
+  end
+
+  private
+
+  def person_params
+    params.require(:person).permit(:name)
   end
 
 end
