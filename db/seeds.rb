@@ -13,3 +13,11 @@ people = [
 people.each do |person|
   Person.create(person)
 end
+
+tasks = [
+  name: 'Task A'
+]
+
+tasks.each do |task|
+  Task.create(task)
+end

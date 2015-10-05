@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  def create
 
+  def create
     task = Task.new(task_params)
 
     if task.save
@@ -10,10 +10,20 @@ class TasksController < ApplicationController
     end
   end
 
+  def update
+    task = Task.find(params[:task][:id])
+
+    if task.update_attributes(task_params)
+      render json: { id: task.id }, status: 200
+    else
+      render json: {}, status: 422
+    end
+  end
+
   private
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:name, :assignee_id)
   end
 
 end
