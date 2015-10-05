@@ -1,4 +1,4 @@
-firebase = Firebase::Client.new("https://" + 'ember-many-three' + ".firebaseio.com")
+firebase = Firebase::Client.new("https://ember-many-three.firebaseio.com")
 firebase.set("/", nil)
 
 people = [

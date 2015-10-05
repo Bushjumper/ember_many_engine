@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def initialize_firebase
-    @firebase = Firebase::Client.new("https://" + 'ember-many-three' + ".firebaseio.com")
+    @firebase = Firebase::Client.new("https://ember-many-three.firebaseio.com")
   end
 
   def set_access_control_headers
