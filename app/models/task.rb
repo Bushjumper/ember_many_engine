@@ -22,7 +22,9 @@ class Task < ActiveRecord::Base
 
   def fb_create
     fb.set(fb_ref, fb_json)
-    fb.set("people/#{assignee_id}/assigned_task_ids/#{id}", true)
+    if assignee_id.present?
+      fb.set("people/#{assignee_id}/assigned_task_ids/#{id}", true)
+    end
   end
 
   def fb_update
