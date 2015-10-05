@@ -1,4 +1,4 @@
-class Person < ActiveRecord::Base
+class Stream < ActiveRecord::Base
 
   after_create :set_firebase
 
@@ -7,6 +7,7 @@ class Person < ActiveRecord::Base
   end
 
   def set_firebase
-    fb.set("people/#{id}", {name: name})
+    fb.set("streams/#{id}", {name: name})
   end
+
 end
