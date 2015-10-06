@@ -77,5 +77,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.firebase = Firebase::Client.new("https://ember-many-three.firebaseio.com")
+  config.firebase = Firebase::Client.new("https://ember-many-two.firebaseio.com")
 end

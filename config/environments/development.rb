@@ -39,5 +39,5 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.firebase = Firebase::Client.new("https://ember-many-three.firebaseio.com")
+  config.firebase = Firebase::Client.new("https://ember-many-two.firebaseio.com")
 end

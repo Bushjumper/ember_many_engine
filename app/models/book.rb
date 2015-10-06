@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
 
+  belongs_to :author
+
   after_create :set_firebase
 
   def fb
@@ -11,7 +13,10 @@ class Book < ActiveRecord::Base
   end
 
   def fb_json
-    {name: name}
+    {
+      name: name,
+      author_id: author_id
+    }
   end
 
   def set_firebase

@@ -10,6 +10,16 @@ class PeopleController < ApplicationController
     end
   end
 
+  def update
+    person = Person.find(params[:id])
+
+    if person.update_attributes(person_params)
+       render json: { id: person.id }, status: 200
+    else
+      render json: {}, status: 422
+    end
+  end
+
   private
 
   def person_params
